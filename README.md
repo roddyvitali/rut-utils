@@ -1,12 +1,12 @@
-#RUT Utils
+# RUT Utils
 
-##Rol Único Tributario (RUT)
+## Rol Único Tributario (RUT)
 Each person registered in the database of the Civil Registry has its own RUT, that is unique and unrepeatable number that useful as a method of identification. This consists of an 8-digit number with a verification digit that can be from 0 to 9 or a K.
 
-##Description
+## Description
 The utilities for the use of the RUT number, consist in a set of tools that allow you to verify the validity of the number, give it a format, and obtain the full name and aditional information of a person that is linked to that Rut number.
 
-##Tools
+## Tools
 - Give Format a RUT
 - Clean the invalids characters RUT
 - Calculate the verifier digit
@@ -14,12 +14,12 @@ The utilities for the use of the RUT number, consist in a set of tools that allo
 - Get the number of 8 digits or the verifier digit from the RUT
 - Get the full name and additional information of a person from the RUT
 
-##Installation
+## Installation
 ```
 npm install rut-utils --save
 ```
 
-##Examples
+## Examples
 ```
 import RutUtils from 'rut-utils'
 
@@ -76,13 +76,13 @@ RutTools.getInfo("Esteban Caceres", true) // Returns [{"name":"Caceres Esteban",
 
 ```
 
-##Test
+## Test
 ```
 npm test
 ```
 
-##Credits
+## Credits
 - [Roddy Vitali](https://twitter.com/@roddyvitali)
 
-##License
+## License
 - [MIT](https://github.com/roddyvitali/rut-utils/tree/master/LICENSE)
