@@ -58,7 +58,7 @@ export default class RutUtils {
     }
     getInfo(data, isName = false){
         let route = !isName  ? 'rut/' : 'search?q='
-        return response = fetch(`https://api.rutify.cl/${route}${data}`)
+        return fetch(`https://api.rutify.cl/${route}${data}`)
         .then( response => response.json() )
         .then( json => {
             if(json.hasOwnProperty('servel')){ delete json.servel; } 

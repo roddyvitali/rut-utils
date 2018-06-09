@@ -92,7 +92,7 @@ var RutUtils = function () {
             var isName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
             var route = !isName ? 'rut/' : 'search?q=';
-            return response = fetch('https://api.rutify.cl/' + route + data).then(function (response) {
+            return fetch('https://api.rutify.cl/' + route + data).then(function (response) {
                 return response.json();
             }).then(function (json) {
                 if (json.hasOwnProperty('servel')) {
