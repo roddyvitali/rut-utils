@@ -62,7 +62,6 @@ export default class RutUtils {
         .then( response => response.json() )
         .then( json => {
             if(json.hasOwnProperty('servel')){ delete json.servel; } 
-            console.log(json)
             return json
         })
         .catch(error => error)

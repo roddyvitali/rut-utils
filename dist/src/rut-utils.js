@@ -32,7 +32,6 @@ var RutUtils = function () {
             /-([\dkK])$/.test(rut) ? withVerifier = true : withVerifier = false;
             rut = this.clean(rut);
             if (!this.firstValidate(rut)) return false;
-
             var nums = [];
             withVerifier ? nums = rut.slice(0, -1).split('').reverse() : nums = rut.split('').reverse();
             var m = 0,
@@ -93,13 +92,12 @@ var RutUtils = function () {
             var isName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
             var route = !isName ? 'rut/' : 'search?q=';
-            fetch('https://api.rutify.cl/' + route + data).then(function (response) {
+            return response = fetch('https://api.rutify.cl/' + route + data).then(function (response) {
                 return response.json();
             }).then(function (json) {
                 if (json.hasOwnProperty('servel')) {
                     delete json.servel;
                 }
-                console.log(json);
                 return json;
             }).catch(function (error) {
                 return error;
