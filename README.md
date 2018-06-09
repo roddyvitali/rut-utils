@@ -23,44 +23,45 @@ npm install rut-utils --save
 ```
 import RutUtils from 'rut-utils'
 
+const RutTools = new RutUtils()
 /*
     Give Format a RUT
     Input: String Rut, boolean dots( true if you want a rut formatted with dots or false if you want without dots ) default is false
 */
-RutUtils.format("24541681", true) // Returns 2.454.168-1
-RutUtils.format("24541681") // Returns 2454168-1
+RutTools.format("24541681", true) // Returns 2.454.168-1
+RutTools.format("24541681") // Returns 2454168-1
 
 /*
     Clean the invalids characters RUT
     Input: String Rut
 */
-RutUtils.clean("2.454.168-1") // Returns 24541681
+RutTools.clean("2.454.168-1") // Returns 24541681
 
 /*
     Calculate the verifier digit
     Input: String Rut
 */
-RutUtils.calculate("2.454.168") // Returns 1
-RutUtils.calculate("24541681") // Returns 1
+RutTools.calculate("2.454.168") // Returns 1
+RutTools.calculate("24541681") // Returns 1
 
 /*
     Verify if its a valid or invalid RUT
     Input: String Rut
 */
-RutUtils.isValid("2.454.168-1") // Returns true if is valid
-RutUtils.isValid("2.454.168-K") // Returns false if is invalid
+RutTools.isValid("2.454.168-1") // Returns true if is valid
+RutTools.isValid("2.454.168-K") // Returns false if is invalid
 
 /*
     Get the number of 8 digits from the RUT
     Input: String Rut
 */
-RutUtils.digits("2.454.168-1") // Returns 8-digits 2454168
+RutTools.digits("2.454.168-1") // Returns 8-digits 2454168
 
 /*
     Get the verifier digit from the RUT
     Input: String Rut
 */
-RutUtils.verifier("2.454.168-1") // Returns verifier digit 1
+RutTools.verifier("2.454.168-1") // Returns verifier digit 1
 
 /*
     Get object with the full name and additional info of a person from the RUT
