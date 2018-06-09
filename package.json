@@ -1,0 +1,34 @@
+{
+  "name": "rut-utils",
+  "version": "0.1.0",
+  "description": "Utilities for RUT in Chile",
+  "main": "dist/src/rut-utils.js",
+  "scripts": {
+    "build": "babel src/rut-utils.js -d dist",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roddyvitali/rut-utils.git"
+  },
+  "keywords": [
+    "rut",
+    "utils",
+    "javascript",
+    "js",
+    "chile",
+    "codetzi"
+  ],
+  "author": "Roddy Vitali <roddicks@gmail.com> (https://twitter.com/roddyvitali)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roddyvitali/rut-utils/issues"
+  },
+  "homepage": "https://github.com/roddyvitali/rut-utils#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
