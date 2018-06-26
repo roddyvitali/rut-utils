@@ -19,62 +19,87 @@ The utilities for the use of the RUT number, consist in a set of tools that allo
 npm install rut-utils --save
 ```
 
-## Examples
+### General Use
 ```
 import RutUtils from 'rut-utils'
 
-const RutTools = new RutUtils()
-/*
-    Give Format a RUT
-    Input: String Rut, boolean dots( true if you want a rut formatted with dots or false if you want without dots ) default is false
-*/
-RutTools.format("24541681", true) // Returns 2.454.168-1
-RutTools.format("24541681") // Returns 2454168-1
+RutUtils.Format( rut: string, dots: boolean ) #Return string
+RutUtils.Clean(rut: string) #Return string
+RutUtils.Calculate(rut: string) #Return string
+RutUtils.IsValid(rut: string) #Return boolean
+RutUtils.Digits(rut: string) #Return string
+RutUtils.Verifier(rut: string) #Return string
+RutUtils.GetInfo(rut: string) #Return Object
+RutUtils.GetInfo(data: string, searchForName: boolean) #Return Array
+```
 
-/*
-    Clean the invalids characters RUT
+## Examples
+### Give Format a RUT
+Input: String Rut, boolean dots( true if you want a rut formatted with dots or false if you want without dots ) default is false
+```
+import { Format } from 'rut-utils'
+
+Format("24541681", true) // Returns 2.454.168-1
+Format("24541681") // Returns 2454168-1
+```
+
+### Clean the invalids characters RUT
+Input: String Rut
+```
+import { Clean } from 'rut-utils'
+
+Clean("2.454.168-1") // Returns 24541681
+```
+
+### Calculate the verifier digit
+Input: String Rut
+```
+import { Calculate } from 'rut-utils'
+
+Calculate("2.454.168") // Returns 1
+Calculate("24541681") // Returns 1
+```
+
+### Verify if its a valid or invalid RUT
     Input: String Rut
-*/
-RutTools.clean("2.454.168-1") // Returns 24541681
+```
+import { IsValid } from 'rut-utils'
 
-/*
-    Calculate the verifier digit
-    Input: String Rut
-*/
-RutTools.calculate("2.454.168") // Returns 1
-RutTools.calculate("24541681") // Returns 1
+IsValid("2.454.168-1") // Returns true if is valid
+IsValid("2.454.168-K") // Returns false if is invalid
+```
 
-/*
-    Verify if its a valid or invalid RUT
-    Input: String Rut
-*/
-RutTools.isValid("2.454.168-1") // Returns true if is valid
-RutTools.isValid("2.454.168-K") // Returns false if is invalid
+### Get the number of 8 digits from the RUT
+Input: String Rut
+```
+import { Digits } from 'rut-utils'
 
-/*
-    Get the number of 8 digits from the RUT
-    Input: String Rut
-*/
-RutTools.digits("2.454.168-1") // Returns 8-digits 2454168
+Digits("2.454.168-1") // Returns 8-digits 2454168
+```
 
-/*
-    Get the verifier digit from the RUT
-    Input: String Rut
-*/
-RutTools.verifier("2.454.168-1") // Returns verifier digit 1
+### Get the verifier digit from the RUT
+Input: String Rut
 
-/*
-    Get object with the full name and additional info of a person from the RUT
-    Input: String data, Boolean ( false is for search by rut, default is false )
-*/
-RutTools.getInfo("2.454.168-1") // Returns {"nombre":"Caceres Esteban","rut":"24541681","sexo":1}
+```
+import { Verifier } from 'rut-utils'
 
-/*
-    Get array with the full name and additional info of a person from the a name person
-    Input: String data, Boolean ( true is for search by name )
-*/
-RutTools.getInfo("Esteban Caceres", true) // Returns [{"name":"Caceres Esteban","rut":"24541681"}, ...]
+Verifier("2.454.168-1") // Returns verifier digit 1
+```
 
+### Get object with the full name and additional info of a person from the RUT
+Input: String data, Boolean ( false is for search by rut, default is false )
+```
+import { GetInfo } from 'rut-utils'
+
+GetInfo("2.454.168-1") // Returns {"nombre":"Caceres Esteban","rut":"24541681","sexo":1}
+```
+
+### Get array with the full name and additional info of a person from the a name person
+Input: String data, Boolean ( true is for search by name )
+```
+import { GetInfo } from 'rut-utils'
+
+GetInfo("Esteban Caceres", true) // Returns [{"name":"Caceres Esteban","rut":"24541681"}, ...]
 ```
 
 ## Test
